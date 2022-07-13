@@ -66,23 +66,21 @@ section{
 
 
 /* nav */
-#navbar{
-    display: none;
+nav{
+    display: flex;
     justify-content: center;
 
     position: fixed;
     top: 0px;
-    z-index: 3;
+    z-index: 20;
 
     width: 100%;
     left: 50%;  
 
     transform: translateX(-49.9%); 
 
-    background-color: #e9e9e9;
+    background-color: #f1f1f1;
     color: #333;
-    
-    transition: color 0.4 ease-out;
 }
 
 nav ul{
@@ -101,16 +99,27 @@ nav li a{
     transition: color 0.2 ease-out;
 }
 
-nav li a:hover{
+nav li a:hover, nav a.marked{
     color: #1189cf;
     font-weight: 600;
 }
 
-nav a.marked{
+
+nav.on-home{
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: transparent;
+}
+
+nav.on-home a{
+    color: #fff;
+}
+
+nav.on-home li a:hover, nav.on-home a.marked{
     color: #1189cf;
     font-weight: 600;
 }
-
 
 
 /* home */
@@ -118,19 +127,6 @@ nav a.marked{
 #home{
     width: calc(100vw - 10px);
     position: relative;
-}
-
-#navbar-on-home{
-    position: absolute;
-    z-index: 2;
-    left: 50%;
-    transform: translateX(-50%);
-
-    background: none;
-}
-
-#navbar-on-home a {
-    color: #fff;
 }
 
 #home-background{
@@ -144,6 +140,8 @@ nav a.marked{
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: cover;
+
+    z-index: 11;
 }
 
 #home-background h1{
@@ -172,6 +170,7 @@ section#home{
 #resume-container{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 section#resume h3{
@@ -179,11 +178,15 @@ section#resume h3{
     font-weight: 200;
 } 
 
+.education, .experience{
+    width: calc((100% - 50px) / 2);
+}
+
 .education-item, .experience-item{
-    width: 500px;
+    width: 100%;
     height: 200px;
 
-    margin: 20px;
+    margin: 20px auto;
     padding: 25px;
 
     background-color: #222;
@@ -262,6 +265,11 @@ span.school, span.company{
 
 #about-links{
     padding-left: 30px;
+    
+    text-align: center;
+
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .about-button{
@@ -312,11 +320,14 @@ span.school, span.company{
 
     background-color: #222;
     border-radius: 20px;
+
+    font-size:  0.9rem;
 }
 
 .softwares-item, .programming-languages-item, .languages-item{
     display: flex;
     justify-content: space-between;
+    text-align: left;
 
     padding: 10px;
 }
@@ -336,10 +347,12 @@ span.school, span.company{
 
 .skill-indicator{
     margin-right: 0px;
+    font-size: 0.95rem;  
 }
 
 .skill-level{
     color: #1189cf;
+    font-size: 0.95rem;
 }
 
 /* contact */
@@ -511,7 +524,6 @@ footer a{
     border-color: #1189cf;
 }
 
-
 body #form-container .form-item.invalid input,
 body #form-container .form-item.invalid textarea{
     border-color: #cf2d11;
@@ -521,13 +533,12 @@ body #form-container .form-item.invalid label{
     color: #cf2d11;
 }
 
-
-
-
 /* top button */
 .top-btn{
     width: 20px;
     height: 20px;
+
+    z-index: 111;
 
     position: fixed;
     right: 20px;
@@ -535,7 +546,46 @@ body #form-container .form-item.invalid label{
     cursor: pointer;
 }
 
+
+/* little computer screen */
+@media screen and (max-width: 1100px) and (orientation: landscape) {
+    #page-block{
+        width: 800px;
+    }
+    .experience-item, .education-item{
+        height: 250px;
+    }
+
+    #photo-container{
+        height: 450px;
+    }
+
+    #about-links{
+        flex-direction: colum;
+    }
+
+
+    #skills-container{
+        flex-wrap: wrap;
+    }
+
+    .languages{
+        margin: auto;
+    }
+
+    #form-container{
+        width: 500px;
+    }
+}
+
+
+/* phone */
 @media screen and (orientation: portrait){
+
+    body{
+        width: 100vw;
+    }
+
     /* nav */
     nav li{
         padding: 45px 30px;
@@ -552,10 +602,15 @@ body #form-container .form-item.invalid label{
     body #page-block h3{
         font-size: 50px;
     }
+
+    html body #page-block{
+        width: 100vw;
+        margin: auto;
+    }
     /* home */
 
     #home-background{
-        width: 112vw;
+        width: 100vw;
         height: 100vh;
     }
 
@@ -574,22 +629,22 @@ body #form-container .form-item.invalid label{
     #resume-container{
         display: flex;
         flex-direction: column;
-        align-items: center;
     }
 
 
     .education-item, .experience-item{
         width: 900px;
-        height: 300px;
+        height: 450px;
 
     }
 
     .education, .experience{
+        width: auto;
         margin-top: 40px;
     }
     
     div.date p{
-        font-size: 22px;
+        font-size: 30px;
         margin-left: 5px;
     }
     
@@ -598,11 +653,11 @@ body #form-container .form-item.invalid label{
     }
     
     .education-item p, .experience-item p {
-        font-size: 30px;
+        font-size: 39px;
     }
 
     span.school, span.company{
-        font-size: 19px;
+        font-size: 25px;
     }
 
     /* about */
@@ -628,7 +683,7 @@ body #form-container .form-item.invalid label{
     }
 
     #text-container a{
-        font-size: 14px;
+        font-size: 35px;
         border-radius: 999px;
         padding: 20px 40px;
     }
@@ -665,6 +720,10 @@ body #form-container .form-item.invalid label{
     .softwares-item, .programming-languages-item, .languages-item{
         font-size: 35px;
         padding: 20px;
+    }
+
+    .skill-indicator, .skill-level{
+        font-size: 35px;
     }
 
 
