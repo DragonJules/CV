@@ -1,7 +1,15 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* Initialization */
 
 *, ::before, ::after {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
@@ -24,6 +32,11 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 30px;
+}
+
+::-moz-selection{
+    color: #ccc;
+    background-color: #050505;
 }
 
 ::selection{
@@ -54,8 +67,15 @@ h2 strong{
     width: 1100px;
     margin: auto;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 
     text-align: center;
 }
@@ -67,8 +87,12 @@ section{
 
 /* nav */
 nav{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 
     position: fixed;
     top: 0px;
@@ -77,13 +101,19 @@ nav{
     width: 100%;
     left: 50%;  
 
-    transform: translateX(-49.9%); 
+    -webkit-transform: translateX(-49.9%);  
+
+        -ms-transform: translateX(-49.9%);  
+
+            transform: translateX(-49.9%); 
 
     background-color: #f1f1f1;
     color: #333;
 }
 
 nav ul{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -96,6 +126,8 @@ nav li a{
     text-decoration: none;
     font-size: 16px;
     text-transform: uppercase;
+    -webkit-transition: color 0.2 ease-out;
+    -o-transition: color 0.2 ease-out;
     transition: color 0.2 ease-out;
 }
 
@@ -107,7 +139,9 @@ nav li a:hover, nav a.marked{
 
 nav.on-home{
     left: 50%;
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
 
     background-color: transparent;
 }
@@ -148,7 +182,9 @@ nav.on-home li a:hover, nav.on-home a.marked{
     position: absolute;
     top: 42%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
     text-align: center;
 
     font-size: 60px;
@@ -168,9 +204,16 @@ section#home{
 
 /* resume */
 #resume-container{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 section#resume h3{
@@ -231,9 +274,15 @@ span.school, span.company{
 /* about */
 /*me  */
 #presentation{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 
     text-align: left;
 }
@@ -268,8 +317,13 @@ span.school, span.company{
     
     text-align: center;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 
 .about-button{
@@ -304,11 +358,17 @@ span.school, span.company{
 } 
 
 #skills-container{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
     padding: 20px;
 
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+
+        -ms-flex-pack: justify;
+
+            justify-content: space-between;
 }
 
 .softwares-items, .programming-languages-items, .languages-items{
@@ -325,8 +385,12 @@ span.school, span.company{
 }
 
 .softwares-item, .programming-languages-item, .languages-item{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     text-align: left;
 
     padding: 10px;
@@ -359,11 +423,17 @@ span.school, span.company{
 
 /*contact me  */
 #contact-container{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
     padding: 20px;
 
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+
+        -ms-flex-pack: justify;
+
+            justify-content: space-between;
 }
 
 section#contact h3{
@@ -380,6 +450,8 @@ section#contact h3{
 
 #form-container{
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-bottom: 50px;
 
@@ -403,7 +475,15 @@ section#contact h3{
     color: #aaa;
     font-weight: 400;
 
-    transform: translateY(50%); 
+    -webkit-transform: translateY(50%);
+
+        -ms-transform: translateY(50%);
+
+            transform: translateY(50%); 
+
+    -webkit-transition: 0.4s ease; 
+
+    -o-transition: 0.4s ease; 
 
     transition: 0.4s ease;
 }
@@ -423,6 +503,10 @@ section#contact h3{
     background: none;
 
     border-bottom: 2px solid #aaa;
+
+    -webkit-transition: border 0.4s ease-out;
+
+    -o-transition: border 0.4s ease-out;
 
     transition: border 0.4s ease-out;
 }
@@ -496,9 +580,17 @@ section#contact h3{
 footer{
     height: 100px;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 
 }
 
@@ -513,7 +605,9 @@ footer a{
 #form-container .form-item:focus-within label,
 #form-container .form-item.animation label{
     top: 0px;
-    transform: translateY(-1%);
+    -webkit-transform: translateY(-1%);
+        -ms-transform: translateY(-1%);
+            transform: translateY(-1%);
     color: #1189cf;
 }
 
@@ -561,12 +655,16 @@ body #form-container .form-item.invalid label{
     }
 
     #about-links{
-        flex-direction: colum;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: colum;
+                flex-direction: colum;
     }
 
 
     #skills-container{
-        flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
     }
 
     .languages{
@@ -627,8 +725,13 @@ body #form-container .form-item.invalid label{
     /* resume */
 
     #resume-container{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
 
 
@@ -662,7 +765,10 @@ body #form-container .form-item.invalid label{
 
     /* about */
     #presentation{
-        flex-direction: column-reverse;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+            -ms-flex-direction: column-reverse;
+                flex-direction: column-reverse;
     }
 
     #text-container{
@@ -702,8 +808,13 @@ body #form-container .form-item.invalid label{
     }
 
     #skills-container{
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
 
     #skills-container h4{
@@ -730,8 +841,13 @@ body #form-container .form-item.invalid label{
     /* contact */
 
     #contact-container{
-        flex-direction: column;
-        align-items: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
 
     #form-container{
@@ -786,8 +902,12 @@ body #form-container .form-item.invalid label{
     }
 
     #contact-details-container div{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: space-between;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
     }
 
     /* top button */
