@@ -25,7 +25,7 @@ app.post('/', (req, res) => {
         service: 'gmail',
         auth: {
             user: 'jg.resume.server@gmail.com',
-            pass: 'lsutgondkzccgaqv'
+            pass: ''
         }
     });
 
